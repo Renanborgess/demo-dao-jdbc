@@ -9,7 +9,6 @@ public class Programa {
 
 	public static void main(String[] args) {
 		
-		Departamento obj = new Departamento(1,"Livros");
 		Vendedor vendedor = new Vendedor(20, "Renan", "renanborgessti@gmail.com", new Date(), 4800.00);
 		
 		System.out.println(vendedor);
