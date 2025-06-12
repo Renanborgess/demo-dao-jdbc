@@ -88,7 +88,25 @@ public class VendedorDaoJDBC implements VendedorDAO {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("DELETE FROM seller WHERE Id = ? ");
+			
+			st.setInt(1, id);
+			
+			int ex = st.executeUpdate();
+			
+			if(ex == 0) {
+				throw new DbException("Id não existe");
+			}else {
+				st.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatement(st);
+		}
 		
 	}
 
