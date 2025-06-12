@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import model.dao.DepartamentoDAO;
 import model.dao.FabricaDAO;
 import model.dao.VendedorDAO;
 import model.dao.impl.VendedorDaoJDBC;
@@ -17,6 +18,7 @@ public class Programa {
 		Scanner sc = new Scanner(System.in);
 		
 		VendedorDAO vendedorDao = FabricaDAO.criarVendedorDAO();
+		DepartamentoDAO departamentoDao = FabricaDAO.criarDepartamento();
 		
 		System.out.println("==== TEST 1: Vendedor findById ====");
 		Vendedor vendedor = vendedorDao.findById(2);
@@ -56,7 +58,8 @@ public class Programa {
 		int id = sc.nextInt();
 		vendedorDao.deleteById(id);
 		System.out.println("Deletado com sucesso!");
+		System.out.println("--------------------------------------------------------");
+		System.out.println();
 		
-		sc.close();
 	}	
 }
